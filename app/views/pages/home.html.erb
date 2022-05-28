@@ -2,23 +2,30 @@
 
 
 
+<div class = "d-flex">
 
-<div>
+<div class="lyrics">
 <h4><%= @htmlredact.html_safe %></h4>
 </div>
 
 
-<div class="listprop">
-  <ol reversed>
-
-    <%session[:queries].reverse_each do |mot, frequence| %>
-    <li>
-       <%=mot %> : <%= frequence %>
-    </li>
-  <% end %>
-  </ol>
+<div class="rightcol">
+    <div class="listprop">
+      <ol reversed>
+        <%session[:queries].reverse_each do |mot, frequence| %>
+        <li>
+          <%=mot %> : <%= frequence %>
+        </li>
+        <% end %>
+      </ol>
+    </div>
+      <div>
+        <%= link_to "Reset", reset_path, class: "btn btn-primary"  %>
+      </div>
 </div>
 
+
+</div>
 
 <div class="formulaire">
 <%= form_tag root_path, method: :get  do  %>

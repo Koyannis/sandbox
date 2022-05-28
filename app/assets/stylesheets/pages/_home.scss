@@ -3,18 +3,32 @@
 text-align: center;
 padding-top: 2%;
 width: auto;
-max-width: 50vw;
+max-width: 70vw;
 list-style-position: inside;
 
 }
 
 ul { list-style:none; margin-left:0; padding-left:0; }
 
+
+.rightcol {
+  width:30%;
+
+}
+
 .listprop {
   background-color: rgb(255, 255, 255);
-  height: 150px;
+  height: 60vh;
   border-radius: 10px;
   overflow: scroll;
+  overflow-x: hidden;
+  width: auto;
+}
+
+.lyrics {
+  width:60%;
+  overflow: scroll;
+  height: 80vh;
   overflow-x: hidden;
 }
 

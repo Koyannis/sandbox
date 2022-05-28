@@ -4,38 +4,17 @@ require 'open-uri'
 class PagesController < ApplicationController
 
   before_action :wordbag
-  $htmlyrics = "<div>Je m'baladais sur l'avenue le cœur ouvert à  l'inconnu</div>
-  <div>J'avais envie de dire bonjour à  n'importe qui</div>
-  <div>N'importe qui et ce fut toi, je t'ai dit n'importe quoi</div>
-  <div>Il suffisait de te parler, pour t'apprivoiser</div>
+  $htmlyrics = File.read("app/assets/paroles.txt")
 
-
-
-  <div>Aux Champs-Elysées, aux Champs-Elysées</div>
-
-  <div>Au soleil, sous la pluie, à  midi ou à  minuit</div>
-  <div>Il y a tout ce que vous voulez aux Champs-Elysées</div>
-
-  <div>Tu m'as dit J'ai rendez-vous dans un sous-sol avec des fous</div>
-  <div>Qui vivent la guitare à  la main, du soir au matin</div>
-"
 
   def wordbag
-
     @html = Nokogiri::HTML.fragment($htmlyrics)
-
-
     session[:lyrics] = @html.text
-
-
     session[:queries] ||= {}
-
     session[:counter] = WordsCounted.count(
       session[:lyrics]
     )
-
     session[:wordbag] = session[:counter].token_frequency
-
   end
 
 
@@ -61,10 +40,12 @@ class PagesController < ApplicationController
     if params[:query].present?
       redirect_to root_path
     end
+  end
 
 
-
-
+  def reset
+    reset_session
+    redirect_to root_path
   end
 
 private
@@ -91,7 +72,7 @@ private
   def htmlredact
     html = Nokogiri::HTML.fragment($htmlyrics)
 
-    html = @html.css("div").each do |node|
+    html = @html.css("p").each do |node|
       node.content = stringredact(node.content)
     end
 
