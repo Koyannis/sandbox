@@ -21,26 +21,36 @@ class PagesController < ApplicationController
     @lyrics = session[:lyrics]
     @wordbag = session[:wordbag]
     @indexedlyrics = []
-    @lyrics.scan(/\w+(?:'\w+)*/) {|word| @indexedlyrics << [word, @wordbag.find_index{ |k,v| k == word.downcase}]}
-    @redactedtext = stringredact(session[:lyrics])
+    @lyrics.scan(/\w+(?:'\w+)*/) {|word| @indexedlyrics << [word, @wordbag.find_index{ |k,_| k == word.downcase}]}
+    @indexedlyricshash = Hash[@indexedlyrics.flatten.each_slice(2).to_a]
+
     @wordbag = Hash[@wordbag.flatten.each_slice(2).to_a]
+
     if params[:query].present?
       @mot = params[:query].downcase
-      @essai = @wordbag[@mot]
-      @essai ||= 0
-      session[:queries][@mot] = @essai
-
+      @frequence = @wordbag[@mot.downcase]
+      @frequence ||= 0
+      session[:queries][@mot] = @frequence
     else
       @mot = "Proposez un mot !"
       @essai = ""
     end
+
+    @redactedtext = stringredact(session[:lyrics])
 
   end
 
 private
 
   def stringredact(string)
-    string.split.map{ |word| redact(word)}.join(' ')
+    redacted = string.split.map do |word|
+      if session[:queries].include? word.downcase
+        word
+      else
+        redact(word)
+      end
+    end
+    redacted.join(' ')
   end
 
   def redact(word)

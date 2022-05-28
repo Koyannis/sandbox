@@ -3,13 +3,14 @@
 <h2><%= @redactedtext %></h2>
 
 <div class="listprop">
-  <ul>
+  <ol>
+
     <%session[:queries].reverse_each do |mot, frequence| %>
     <li>
-    <%= mot %> : <%= frequence %>
+       <%=mot %> : <%= frequence %>
     </li>
   <% end %>
-  </ul>
+  </ol>
 </div>
 
 
@@ -25,12 +26,14 @@
 <% end %>
 
 
+
+
+<div> <%=@lyrics%></div>
+
 <div>
 Wordbag brut :
 <%= session[:wordbag] %>
 </div>
-
-
 
 <div>
 Wordbag :
@@ -39,12 +42,11 @@ Wordbag :
 
 <div>
 Indexé :
-<%= @indexedlyrics %>
+<%= @indexedlyricshash %>
 </div>
 
-<div> <%=@lyrics%></div>
 
-
+  <div><%= session[:queries]  %></div>
 
 
 </div>
