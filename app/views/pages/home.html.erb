@@ -1,18 +1,31 @@
 <div class="container homepage">
 
-<h4><%= @redactedtext %></h4>
 
-<div class="listprop">
-  <ol reversed>
 
-    <%session[:queries].reverse_each do |mot, frequence| %>
-    <li>
-       <%=mot %> : <%= frequence %>
-    </li>
-  <% end %>
-  </ol>
+<div class = "d-flex">
+
+<div class="lyrics">
+<h4><%= @htmlredact.html_safe %></h4>
 </div>
 
+
+<div class="rightcol">
+    <div class="listprop">
+      <ol reversed>
+        <%session[:queries].reverse_each do |mot, frequence| %>
+        <li>
+          <%=mot %> : <%= frequence %>
+        </li>
+        <% end %>
+      </ol>
+    </div>
+      <div>
+        <%= link_to "Reset", reset_path, class: "btn btn-primary"  %>
+      </div>
+</div>
+
+
+</div>
 
 <div class="formulaire">
 <%= form_tag root_path, method: :get  do  %>
@@ -25,20 +38,6 @@
   </div>
 <% end %>
 
-
-
-
-<div> <%=@lyrics%></div>
-
-<div>
-Wordbag :
-<%= @wordbag %>
-</div>
-
-
-<div><%= session[:queries]  %></div>
-
-<div> split : <%= session[:lyrics].split %></div>
 
 
 </div>
