@@ -4,10 +4,11 @@ require 'open-uri'
 class PagesController < ApplicationController
 
   before_action :wordbag
-  $htmlyrics = File.read("app/assets/paroles.txt")
+
 
 
   def wordbag
+    $htmlyrics = File.read("app/assets/paroles.txt")
     @html = Nokogiri::HTML.fragment($htmlyrics)
     session[:lyrics] = @html.text
     session[:queries] ||= {}
@@ -16,8 +17,6 @@ class PagesController < ApplicationController
     )
     session[:wordbag] = session[:counter].token_frequency
   end
-
-
 
   def home
     @lyrics = session[:lyrics]
@@ -50,15 +49,24 @@ class PagesController < ApplicationController
 
 private
 
+def htmlredact
+  htmlredacted = @html.css("p").each do |node|
+    node.content = stringredact(node.content)
+  end
+
+  return htmlredacted.to_html
+
+end
+
   def stringredact(string)
-    redacted = string.split.map do |word|
+    redacted = string.split(/([a-zA-Z\u00C0-\u00FF]+|\s|\W|\w\W\w)/).reject!(&:empty?).map do |word|
       if session[:queries].include? word.downcase or word.size == 1
         word
       else
         redact(word)
       end
     end
-    redacted.join(' ')
+    redacted.join('')
   end
 
   def redact(word)
@@ -69,16 +77,7 @@ private
     return redacted
   end
 
-  def htmlredact
-    html = Nokogiri::HTML.fragment($htmlyrics)
 
-    html = @html.css("p").each do |node|
-      node.content = stringredact(node.content)
-    end
-
-    return html.to_html
-
-  end
 
 
 
