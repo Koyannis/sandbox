@@ -5,8 +5,6 @@ class PagesController < ApplicationController
 
   before_action :wordbag
 
-
-
   def wordbag
     $htmlyrics = File.read("app/assets/paroles.txt")
     @html = Nokogiri::HTML.fragment($htmlyrics)
@@ -16,7 +14,7 @@ class PagesController < ApplicationController
       session[:lyrics]
     )
     session[:wordbag] = session[:counter].token_frequency
-    @arrayofwords = session[:lyrics].split(/([a-zA-Z\u00C0-\u00FF]+|\s|\W|\w\W\w)/).reject!(&:empty?)
+    @arrayofwords = session[:lyrics].split(/([a-zA-Z\u00C0-\u00FF]+|\s|\W|\w\W\w)/).map!(&:downcase).reject!(&:empty?)
   end
 
   def home
@@ -50,15 +48,16 @@ class PagesController < ApplicationController
 
 private
 
-def htmlredact
-  htmlredacted = @html.css("div").each do |node|
-    node.content = stringredact(node.content)
+# Récupere le fichier html et, pour chaque div, lance la censure
+  def htmlredact
+    htmlredacted = @html.css("div").each do |node|
+      node.content = stringredact(node.content)
+    end
+    return htmlredacted.to_html
   end
 
-  return htmlredacted.to_html
-
-end
-
+# Divise une string en mots/ponctuaction/espaces et applique redact() sur chaque élément.
+# Coupe aujourd'hui en "aujourd" "'" et "hui" donc pas top.
   def stringredact(string)
     redacted = string.split(/([a-zA-Z\u00C0-\u00FF]+|\s|\W|\w\W\w)/).reject!(&:empty?).map do |word|
       if session[:queries].include? word.downcase
@@ -70,6 +69,7 @@ end
     redacted.join('')
   end
 
+# Remplace chaque lettre d'un mot par un bloc. Uniquement si il s'agit d'alphanumérique
   def redact(word)
     redacted = ""
       word.each_char do |char|
@@ -77,9 +77,5 @@ end
       end
     return redacted
   end
-
-
-
-
 
 end
