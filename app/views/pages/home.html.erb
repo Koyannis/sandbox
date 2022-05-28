@@ -1,13 +1,12 @@
-<div class="container homepage row">
+<div class="container homepage">
 
-  <div class = "d-flex width: 100%">
+      <div class="lyrics">
+        <%= @htmlredact.html_safe %>
+      </div>
 
-    <div class="lyrics">
-      <h4><%= @htmlredact.html_safe %></h4>
-    </div>
 
-    <div class="rightcol">
-        <div class="listprop">
+    <div class="propals d-flex">
+      <div class="listprop">
           <ol reversed id="colcol">
             <%session[:queries].reverse_each do |mot| %>
             <li>
@@ -16,28 +15,24 @@
             <% end %>
           </ol>
         </div>
-        <div>
-          <%= link_to "Reset", reset_path, class: "btn btn-primary"  %>
+
+        <div class="formulaire">
+            <%= form_tag root_path, method: :get, class: "d-flex"  do  %>
+              <%= text_field_tag :query,
+                  "",
+                  class: "form-control",
+                  autofocus: true,
+                  autocomplete: "off"
+                %>
+              <%= submit_tag "Valider", class: "btn btn-primary" %>
+              <% end %>
         </div>
-    </div>
-  </div>
 
-    <div class="formulaire">
-          <%= form_tag root_path, method: :get  do  %>
-            <%= text_field_tag :query,
-              "",
-              class: "form-control",
-              autofocus: true,
-              autocomplete: "off"
-            %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
     </div>
 
-
-
-  </div>
-
+    <div>
+        <%= link_to "Reset", reset_path, class: "btn btn-danger"  %>
+      </div>
 
 
 
