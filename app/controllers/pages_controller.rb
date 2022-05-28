@@ -4,25 +4,29 @@ require 'open-uri'
 class PagesController < ApplicationController
 
   before_action :wordbag
+  $htmlyrics = "<div>Je m'baladais sur l'avenue le cœur ouvert à  l'inconnu</div>
+  <div>J'avais envie de dire bonjour à  n'importe qui</div>
+  <div>N'importe qui et ce fut toi, je t'ai dit n'importe quoi</div>
+  <div>Il suffisait de te parler, pour t'apprivoiser</div>
 
+
+
+  <div>Aux Champs-Elysées, aux Champs-Elysées</div>
+
+  <div>Au soleil, sous la pluie, à  midi ou à  minuit</div>
+  <div>Il y a tout ce que vous voulez aux Champs-Elysées</div>
+
+  <div>Tu m'as dit J'ai rendez-vous dans un sous-sol avec des fous</div>
+  <div>Qui vivent la guitare à  la main, du soir au matin</div>
+"
 
   def wordbag
-    session[:lyrics] = "Je m'baladais sur l'avenue le cœur ouvert à l'inconnu
-    J'avais envie de dire bonjour à n'importe qui
-    N'importe qui et ce fut toi, je t'ai dit n'importe quoi
-    Il suffisait de te parler, pour t'apprivoiser
-    Aux Champs-Elysées, aux Champs-Elysées
-    Au soleil, sous la pluie, à midi ou à minuit
-    Il y a tout ce que vous voulez aux Champs-Elysées
-    Tu m'as dit J'ai rendez-vous dans un sous-sol avec des fous
-    Qui vivent la guitare à la main, du soir au matin
-    Alors je t'ai accompagnée, on a chanté, on a dansé
-    Et l'on n'a même pas pensé à s'embrasser
-    Aux Champs-Elysées, aux Champs-Elysées
-    Au soleil, sous la pluie, à midi ou à minuit
-    Il y a tout ce que vous voulez aux Champs-Elysées
-    Hier soir, deux inconnus et ce matin sur l'avenue
-    Deux amoureux tout étourdis par la longue nuit"
+
+    @html = Nokogiri::HTML.fragment($htmlyrics)
+
+
+    session[:lyrics] = @html.text
+
 
     session[:queries] ||= {}
 
@@ -39,7 +43,7 @@ class PagesController < ApplicationController
   def home
     @lyrics = session[:lyrics]
     @wordbag = session[:wordbag]
-
+    @htmlredact = htmlredact()
     @wordbag = Hash[@wordbag.flatten.each_slice(2).to_a]
 
     if params[:query].present?
@@ -57,6 +61,10 @@ class PagesController < ApplicationController
     if params[:query].present?
       redirect_to root_path
     end
+
+
+
+
   end
 
 private
@@ -79,5 +87,18 @@ private
       end
     return redacted
   end
+
+  def htmlredact
+    html = Nokogiri::HTML.fragment($htmlyrics)
+
+    html = @html.css("div").each do |node|
+      node.content = stringredact(node.content)
+    end
+
+    return html.to_html
+
+  end
+
+
 
 end

@@ -1,6 +1,12 @@
 <div class="container homepage">
 
-<h4><%= @redactedtext %></h4>
+
+
+
+<div>
+<h4><%= @htmlredact.html_safe %></h4>
+</div>
+
 
 <div class="listprop">
   <ol reversed>
@@ -25,20 +31,6 @@
   </div>
 <% end %>
 
-
-
-
-<div> <%=@lyrics%></div>
-
-<div>
-Wordbag :
-<%= @wordbag %>
-</div>
-
-
-<div><%= session[:queries]  %></div>
-
-<div> split : <%= session[:lyrics].split %></div>
 
 
 </div>
