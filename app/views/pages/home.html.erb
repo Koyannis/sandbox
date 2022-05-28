@@ -1,5 +1,6 @@
-<div class="container homepage">
+<div style="width:auto; text-align:center;"><%= flash[:notice] if flash[:notice] %></div>
 
+<div class="container homepage">
       <div class="lyrics">
         <%= @htmlredact.html_safe %>
       </div>
@@ -27,7 +28,6 @@
               <%= submit_tag "Valider", class: "btn btn-primary" %>
               <% end %>
         </div>
-
+       
     </div>
-
 </div>

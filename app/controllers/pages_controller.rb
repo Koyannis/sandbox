@@ -25,9 +25,11 @@ class PagesController < ApplicationController
       @mot = "Proposez un mot !"
       @essai = ""
     end
-    @redactedtext = stringredact(session[:lyrics])
     if params[:query].present?
       redirect_to root_path
+    end
+    if @htmlredact.include? @htmlpure.at('div').text
+      flash[:notice] = "✨Bravo !✨"
     end
   end
 
