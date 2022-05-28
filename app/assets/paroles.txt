@@ -3,7 +3,7 @@
 <div>Je suis le gardien</div>
 <div>Du sommeil de ses nuits</div>
 <div>Je l'aime à mourir</div>
-</br>
+<div>&nbsp;</div>
 <div>Vous pouvez détruire</div>
 <div>Tout ce qu'il vous plaira</div>
 <div>Elle n'a qu'à ouvrir</div>
@@ -11,13 +11,13 @@
 <div>Pour tout reconstruire</div>
 <div>Pour tout reconstruire</div>
 <div>Je l'aime à mourir</div>
-</br>
+<div>&nbsp;</div>
 <div>Elle a gommé les chiffres</div>
 <div>Des horloges du quartier</div>
 <div>Elle a fait de ma vie</div>
 <div>Des cocottes en papier</div>
 <div>Des éclats de rire</div>
-</br>
+<div>&nbsp;</div>
 <div>Elle a bâti des ponts</div>
 <div>Entre nous et le ciel</div>
 <div>Et nous les traversons</div>
@@ -25,18 +25,18 @@
 <div>Ne veut pas dormir</div>
 <div>Ne veut pas dormir</div>
 <div>Je l'aime à mourir</div>
-</br>
+<div>&nbsp;</div>
 <div>Elle a dû faire toutes les guerres</div>
 <div>Pour être si forte aujourd'hui</div>
 <div>Elle a dû faire toutes les guerres</div>
 <div>De la vie, et l'amour aussi</div>
-</br>
+<div>&nbsp;</div>
 <div>Elle vit de son mieux</div>
 <div>Son rêve d'opaline</div>
 <div>Elle danse au milieu</div>
 <div>Des forêts qu'elle dessine</div>
 <div>Je l'aime à mourir</div>
-</br>
+<div>&nbsp;</div>
 <div>Elle porte des rubans</div>
 <div>Qu'elle laisse s'envoler</div>
 <div>Elle me chante souvent</div>
@@ -44,13 +44,13 @@
 <div>De les retenir</div>
 <div>De les retenir</div>
 <div>Je l'aime à mourir</div>
-</br>
+<div>&nbsp;</div>
 <div>Pour monter dans sa grotte</div>
 <div>Cachée sous les toits</div>
 <div>Je dois clouer des notes</div>
 <div>À mes sabots de bois</div>
 <div>Je l'aime à mourir</div>
-</br>
+<div>&nbsp;</div>
 <div>Je dois juste m'asseoir</div>
 <div>Je ne dois pas parler</div>
 <div>Je ne dois rien vouloir</div>
@@ -58,7 +58,7 @@
 <div>De lui appartenir</div>
 <div>De lui appartenir</div>
 <div>Je l'aime à mourir</div>
-</br>
+<div>&nbsp;</div>
 <div>Elle a dû faire toutes les guerres</div>
 <div>Pour être si forte aujourd'hui</div>
 <div>Elle a dû faire toutes les guerres</div>
