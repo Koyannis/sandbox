@@ -1,9 +1,9 @@
 <div class="container homepage">
 
-<h2><%= @redactedtext %></h2>
+<h4><%= @redactedtext %></h4>
 
 <div class="listprop">
-  <ol>
+  <ol reversed>
 
     <%session[:queries].reverse_each do |mot, frequence| %>
     <li>
@@ -31,22 +31,14 @@
 <div> <%=@lyrics%></div>
 
 <div>
-Wordbag brut :
-<%= session[:wordbag] %>
-</div>
-
-<div>
 Wordbag :
 <%= @wordbag %>
 </div>
 
-<div>
-Indexé :
-<%= @indexedlyricshash %>
-</div>
 
+<div><%= session[:queries]  %></div>
 
-  <div><%= session[:queries]  %></div>
+<div> split : <%= session[:lyrics].split %></div>
 
 
 </div>

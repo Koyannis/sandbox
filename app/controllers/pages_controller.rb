@@ -1,9 +1,28 @@
+require 'nokogiri'
+require 'open-uri'
+
 class PagesController < ApplicationController
 
   before_action :wordbag
 
+
   def wordbag
-    session[:lyrics] = "Bonjour bonsoir bonjour comment allez vous ?"
+    session[:lyrics] = "Je m'baladais sur l'avenue le cœur ouvert à l'inconnu
+    J'avais envie de dire bonjour à n'importe qui
+    N'importe qui et ce fut toi, je t'ai dit n'importe quoi
+    Il suffisait de te parler, pour t'apprivoiser
+    Aux Champs-Elysées, aux Champs-Elysées
+    Au soleil, sous la pluie, à midi ou à minuit
+    Il y a tout ce que vous voulez aux Champs-Elysées
+    Tu m'as dit J'ai rendez-vous dans un sous-sol avec des fous
+    Qui vivent la guitare à la main, du soir au matin
+    Alors je t'ai accompagnée, on a chanté, on a dansé
+    Et l'on n'a même pas pensé à s'embrasser
+    Aux Champs-Elysées, aux Champs-Elysées
+    Au soleil, sous la pluie, à midi ou à minuit
+    Il y a tout ce que vous voulez aux Champs-Elysées
+    Hier soir, deux inconnus et ce matin sur l'avenue
+    Deux amoureux tout étourdis par la longue nuit"
 
     session[:queries] ||= {}
 
@@ -20,9 +39,6 @@ class PagesController < ApplicationController
   def home
     @lyrics = session[:lyrics]
     @wordbag = session[:wordbag]
-    @indexedlyrics = []
-    @lyrics.scan(/\w+(?:'\w+)*/) {|word| @indexedlyrics << [word, @wordbag.find_index{ |k,_| k == word.downcase}]}
-    @indexedlyricshash = Hash[@indexedlyrics.flatten.each_slice(2).to_a]
 
     @wordbag = Hash[@wordbag.flatten.each_slice(2).to_a]
 
@@ -38,13 +54,16 @@ class PagesController < ApplicationController
 
     @redactedtext = stringredact(session[:lyrics])
 
+    if params[:query].present?
+      redirect_to root_path
+    end
   end
 
 private
 
   def stringredact(string)
     redacted = string.split.map do |word|
-      if session[:queries].include? word.downcase
+      if session[:queries].include? word.downcase or word.size == 1
         word
       else
         redact(word)
