@@ -6,10 +6,11 @@ body {
 .homepage{
 text-align: center;
 list-style-position: inside;
-height: 100vh;
+height: 90vh;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
+gap: 2vw;
 
 }
 
@@ -27,6 +28,7 @@ padding-top: 10px;
   background-color: #56494E;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 20px;
 }
 
 
@@ -39,7 +41,14 @@ padding-top: 10px;
   color: white;
   padding-left: 5px;
   padding-right: 5px;
+  border-radius: 20px;
+  font-size: 1.2em;
 
+  li{
+  border-top: solid;
+  border-width: 1px;
+
+  }
 
 }
 
@@ -49,29 +58,40 @@ padding-top: 10px;
   line-height: 35px;
   font-size: 1.5em;
   background-color: #511C29;
-  border-top-left-radius: 10px ;
   color: white;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
   max-height: 90vh;
-
+  border-radius: 20px;
+  min-width: 50%
 }
 
 .formulaire {
+  border-radius: 20px;
 
 }
 
 
 @media (max-width: 800px) {
+
+  .homepage{
+
+    gap: 0;
+
+    }
+
+
   .lyrics {
     height: 75vh;
     margin: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .listprop {
     height: 15vh;
     margin: 0;
     padding: 0;
+
   }
 
   .formulaire {
@@ -85,6 +105,8 @@ padding-top: 10px;
     padding: 0;
     width: 100%;
     height: 20vh;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
 }

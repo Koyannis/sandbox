@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     @htmlredact = htmlredact()
     if params[:query].present?
       @mot = params[:query].downcase.strip
-      session[:queries] << @mot
+      session[:queries] |= [@mot]
     else
       @mot = "Proposez un mot !"
       @essai = ""
