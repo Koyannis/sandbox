@@ -1,2 +1,50 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container homepage">
+
+<h2><%= @redactedtext %></h2>
+
+<div class="listprop">
+  <ul>
+    <%session[:queries].reverse_each do |mot, frequence| %>
+    <li>
+    <%= mot %> : <%= frequence %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
+
+<div class="formulaire">
+<%= form_tag root_path, method: :get  do  %>
+  <%= text_field_tag :query,
+    "",
+    class: "form-control",
+    autofocus: true
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+<div>
+Wordbag brut :
+<%= session[:wordbag] %>
+</div>
+
+
+
+<div>
+Wordbag :
+<%= @wordbag %>
+</div>
+
+<div>
+Indexé :
+<%= @indexedlyrics %>
+</div>
+
+<div> <%=@lyrics%></div>
+
+
+
+
+</div>

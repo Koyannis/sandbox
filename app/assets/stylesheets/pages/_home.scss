@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+.homepage{
+text-align: center;
+padding-top: 5%;
+width: auto;
+max-width: 50vw;
+
+}
+
+ul { list-style:none; margin-left:0; padding-left:0; }
+
+.listprop {
+  background-color: rgb(255, 255, 255);
+  height: 150px;
+  border-radius: 10px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.formulaire {
+
+margin-bottom: 100px;
+
+}
