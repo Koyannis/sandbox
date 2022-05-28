@@ -1,35 +1,77 @@
-<p>Comme un bateau dérive<br />
-Sans but et sans mobile<br />
-Je marche dans la ville<br />
-Tout seul et anonyme</p>
-<p>La ville et ses pièges<br />
-Ce sont mes privilèges<br />
-Je suis riche de ça<br />
-Mais ça s'achète pas</p>
-<p>Et j'm'en fous, j'm'en fous de tout<br />
-De ces chaînes qui pendent à mon cou<br />
-J'm'enfuis, j'oublie<br />
-Je m'offre une parenthèse, un sursis</p>
-<p>Je marche seul<br />
-Dans les rues qui se donnent<br />
-Et la nuit me pardonne, je marche seul<br />
-En oubliant les heures<br />
-Je marche seul<br />
-Sans témoin, sans personne<br />
-Que mes pas qui résonnent, je marche seul<br />
-Acteur et voyeur</p>
-<p>Se rencontrer, séduire<br />
-Quand la nuit fait des siennes<br />
-Promettre sans le dire<br />
-Juste des yeux qui traînent</p>
-<p>Oh, quand la vie s'obstine<br />
-En ces heures assassines<br />
-Je suis riche de ça<br />
-Mais ça ne s'achète pas</p>
-<p>Et j'm'en fous...</p>
-<p>Je marche seul<br />
-Quand ma vie déraisonne<br />
-Quand l'envie m'abandonne<br />
-Je marche seul<br />
-Pour me noyer d'ailleurs<br />
-Je marche seul</p>
+<div>Moi je n'étais rien</div>
+<div>Et voilà qu'aujourd'hui</div>
+<div>Je suis le gardien</div>
+<div>Du sommeil de ses nuits</div>
+<div>Je l'aime à mourir</div>
+</br>
+<div>Vous pouvez détruire</div>
+<div>Tout ce qu'il vous plaira</div>
+<div>Elle n'a qu'à ouvrir</div>
+<div>L'espace de ses bras</div>
+<div>Pour tout reconstruire</div>
+<div>Pour tout reconstruire</div>
+<div>Je l'aime à mourir</div>
+</br>
+<div>Elle a gommé les chiffres</div>
+<div>Des horloges du quartier</div>
+<div>Elle a fait de ma vie</div>
+<div>Des cocottes en papier</div>
+<div>Des éclats de rire</div>
+</br>
+<div>Elle a bâti des ponts</div>
+<div>Entre nous et le ciel</div>
+<div>Et nous les traversons</div>
+<div>À chaque fois qu'elle</div>
+<div>Ne veut pas dormir</div>
+<div>Ne veut pas dormir</div>
+<div>Je l'aime à mourir</div>
+</br>
+<div>Elle a dû faire toutes les guerres</div>
+<div>Pour être si forte aujourd'hui</div>
+<div>Elle a dû faire toutes les guerres</div>
+<div>De la vie, et l'amour aussi</div>
+</br>
+<div>Elle vit de son mieux</div>
+<div>Son rêve d'opaline</div>
+<div>Elle danse au milieu</div>
+<div>Des forêts qu'elle dessine</div>
+<div>Je l'aime à mourir</div>
+</br>
+<div>Elle porte des rubans</div>
+<div>Qu'elle laisse s'envoler</div>
+<div>Elle me chante souvent</div>
+<div>Que j'ai tort d'essayer</div>
+<div>De les retenir</div>
+<div>De les retenir</div>
+<div>Je l'aime à mourir</div>
+</br>
+<div>Pour monter dans sa grotte</div>
+<div>Cachée sous les toits</div>
+<div>Je dois clouer des notes</div>
+<div>À mes sabots de bois</div>
+<div>Je l'aime à mourir</div>
+</br>
+<div>Je dois juste m'asseoir</div>
+<div>Je ne dois pas parler</div>
+<div>Je ne dois rien vouloir</div>
+<div>Je dois juste essayer</div>
+<div>De lui appartenir</div>
+<div>De lui appartenir</div>
+<div>Je l'aime à mourir</div>
+</br>
+<div>Elle a dû faire toutes les guerres</div>
+<div>Pour être si forte aujourd'hui</div>
+<div>Elle a dû faire toutes les guerres</div>
+<div>De la vie, et l'amour aussi</div>
+<div>Moi je n'étais rien</div>
+<div>Et voilà qu'aujourd'hui</div>
+<div>Je suis le gardien</div>
+<div>Du sommeil de ses nuits</div>
+<div>Je l'aime à mourir</div>
+<div>Vous pouvez détruire</div>
+<div>Tout ce qu'il vous plaira</div>
+<div>Elle n'aura qu'à ouvrir</div>
+<div>L'espace de ses bras</div>
+<div>Pour tout reconstruire</div>
+<div>Pour tout reconstruire</div>
+<div>Je l'aime à mourir</div>

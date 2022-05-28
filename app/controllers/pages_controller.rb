@@ -16,6 +16,7 @@ class PagesController < ApplicationController
       session[:lyrics]
     )
     session[:wordbag] = session[:counter].token_frequency
+    @arrayofwords = session[:lyrics].split(/([a-zA-Z\u00C0-\u00FF]+|\s|\W|\w\W\w)/).reject!(&:empty?)
   end
 
   def home
@@ -50,7 +51,7 @@ class PagesController < ApplicationController
 private
 
 def htmlredact
-  htmlredacted = @html.css("p").each do |node|
+  htmlredacted = @html.css("div").each do |node|
     node.content = stringredact(node.content)
   end
 
@@ -60,7 +61,7 @@ end
 
   def stringredact(string)
     redacted = string.split(/([a-zA-Z\u00C0-\u00FF]+|\s|\W|\w\W\w)/).reject!(&:empty?).map do |word|
-      if session[:queries].include? word.downcase or word.size == 1
+      if session[:queries].include? word.downcase
         word
       else
         redact(word)

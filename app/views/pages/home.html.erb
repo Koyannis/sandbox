@@ -1,8 +1,8 @@
-<div class="container homepage">
+<div class="container homepage row">
 
 
 
-<div class = "d-flex">
+<div class = "d-flex col-12">
 
 <div class="lyrics">
 <h4><%= @htmlredact.html_safe %></h4>
@@ -11,10 +11,10 @@
 
 <div class="rightcol">
     <div class="listprop">
-      <ol reversed>
+      <ol reversed id="colcol">
         <%session[:queries].reverse_each do |mot, frequence| %>
         <li>
-          <%=mot %> : <%= frequence %>
+          <%=mot %> : <%= @arrayofwords.count(mot) %>
         </li>
         <% end %>
       </ol>
@@ -32,12 +32,11 @@
   <%= text_field_tag :query,
     "",
     class: "form-control",
-    autofocus: true
+    autofocus: true,
+    autocomplete: "off"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
   </div>
 <% end %>
-
-
 
 </div>
