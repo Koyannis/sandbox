@@ -14,7 +14,13 @@
 
   <body>
 
-    <header style="width: 100vw; text-align: center; font-size: larger;"><b>Song Salad</b></header>
+    <header style="width: 100vw; text-align: center; font-size: larger;">
+    <div>
+          <%= link_to "Reset", reset_path, class: "btn btn-ghost", style: "position: absolute; top: 0; right: 0;"  %>
+    </div>
+    <b>Song Salad</b>
+
+    </header>
     <%= yield %>
   </body>
 </html>
